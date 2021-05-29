@@ -8,16 +8,20 @@
         {% endblock %}
     </head>
     <body>
-        {% block header %}
-        {% endblock %}
-
-        {% block nav %}
-        {% endblock %}
-
-        {% block article %}
-        {% endblock %}
-
-        {% block footer %}
-        {% endblock %}
+        <header>
+            <h1> English helper </h1>
+        </header>
+        <nav>
+            {% block nav %}
+            {% endblock %}
+        </nav>
+        <article>
+            {% block article %}
+            {% endblock %}
+        </article>
+        <footer>
+            {% block footer %}
+            {% endblock %}
+        </footer>
     </body>
 </html>

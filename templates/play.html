@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block head %}
+    <title>Game</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style/play.css' %}">
+{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+{% block article %}
+    <form method="post" action="">
+        {{ object.first }}
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" value="Ok">Ok</button>
+    </form>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

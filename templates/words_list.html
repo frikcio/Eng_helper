@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block head %}
-    <title>Add New Word</title>
+    <title>Words List</title>
     <link rel="stylesheet" type="text/css" href="{% static 'style/add_word.css' %}">
 {% endblock %}
 
@@ -12,12 +12,11 @@
 {% endblock %}
 
 {% block article %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" value="append">Append</button>
-    </form>
-
+    <ol>
+        {% for word in object_list %}
+            <li>{{ word.first }} - {{ word.second }}</li>
+        {% endfor %}
+    </ol>
 {% endblock %}
 
 {% block footer %}

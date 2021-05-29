@@ -7,13 +7,21 @@
     <link rel="stylesheet" type="text/css" href="{% static 'style/profile.css' %}">
 {% endblock %}
 
-{% block header %}
-{% endblock %}
-
 {% block nav %}
+    you have login as {{ request.user }} <br>
+    Wanna to add new words?
+    <a href="{% url 'add_word' %}">Append</a>
 {% endblock %}
 
 {% block article %}
+    Alright, you {% if all_words == 0 %}
+        have no words yet <br>
+    {% else %}
+        have {{ all_words }} words <br>
+        {{ not_learned_words }} words not learned yet<br>
+        See your words <a href="{% url 'words_list' %}">here</a>
+    {% endif %}
+
 {% endblock %}
 
 {% block footer %}

@@ -18,7 +18,7 @@ class EngUser(AbstractUser):
 class Words(models.Model):
     first = models.CharField(max_length=120, unique=True)
     second = models.CharField(max_length=120, unique=True)
-    owner = models.ForeignKey(EngUser, on_delete=models.CASCADE)
+    owner = models.ForeignKey(EngUser, on_delete=models.CASCADE, related_name='words')
     append_date = models.DateTimeField(auto_now_add=True)
     used_date = models.DateTimeField(auto_now=True)
-    status = models.BooleanField()
+    status = models.BooleanField(default=False)
