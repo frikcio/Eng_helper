@@ -14,6 +14,19 @@
 {% endblock %}
 
 {% block article %}
+    {% if not request.user.is_authentikate %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" value="login">Login</button>
+        </form>
+        {% if form.errors %}
+            forgot password?
+            <a href="{% url 'register' %}">registration</a>
+        {% endif %}
+    {% else %}
+        you have logan as {{ request.user }}
+    {% endif %}
 {% endblock %}
 
 {% block footer %}
